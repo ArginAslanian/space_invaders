@@ -30,6 +30,7 @@ var game = {
         // me.state.set(me.state.MENU, new game.TitleScreen());
         me.pool.register("player", game.Player);
         me.pool.register("enemy", game.Enemy);
+        me.pool.register("laser", game.Laser);
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // add our player entity in the entity pool

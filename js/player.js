@@ -20,6 +20,10 @@ game.Player = me.Sprite.extend({
         this.pos.x += this.velx * time / 1000;
     }
 
+    if (me.input.isKeyPressed("shoot")) {
+        me.game.world.addChild(me.pool.pull("laser", this.pos.x - game.Laser.width, this.pos.y - game.Laser.height))
+    }
+
     this.pos.x = me.Math.clamp(this.pos.x, 0, this.maxX);
 
     return true;
