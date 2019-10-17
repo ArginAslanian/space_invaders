@@ -35,6 +35,10 @@ game.Laser = me.Entity.extend({
       if (other.body.collisionType === me.collision.types.ENEMY_OBJECT) {
           me.game.world.removeChild(this);
           game.playScreen.enemyManager.removeChild(other);
+          yourScore = yourScore + 1;
+          yourEnemyCounter = yourEnemyCounter - 1;
+          score.innerHTML = "Score: " + yourScore;
+          enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
           return false;
       }
   }
@@ -42,3 +46,9 @@ game.Laser = me.Entity.extend({
 
 game.Laser.width = 5;
 game.Laser.height = 28;
+var score = document.getElementById("score");
+var level = document.getElementById("level");
+var enemyCounter = document.getElementById("enemy_counter");
+var youWon = document.getElementById("youWon");
+var yourScore = 0;
+var yourEnemyCounter = 36;

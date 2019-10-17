@@ -1,6 +1,11 @@
 game.PlayScreen = me.ScreenObject.extend({
     checkIfLoss: function (y) {
         if (y >= this.player.pos.y) {
+            alert("Sorry, You lost!");
+            yourScore = 0;
+            yourEnemyCounter = 36;
+            score.innerHTML = "Score: " + yourScore;
+            enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
             this.reset();
         }
     },
@@ -11,6 +16,9 @@ game.PlayScreen = me.ScreenObject.extend({
       me.game.world.addChild(new me.ColorLayer("background", "#000000"), 0);
       this.player = me.pool.pull("player");
       me.game.world.addChild(this.player, 1);
+
+      score.innerHTML = "Score: " + yourScore;
+      enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
 
       this.enemyManager = new game.EnemyManager();
       this.enemyManager.createEnemies();

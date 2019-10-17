@@ -44,7 +44,13 @@ game.EnemyManager = me.Container.extend({
 
   update: function (time) {
         if (this.children.length === 0 && this.createdEnemies) {
+            //alert("Congratulations, You have won!");
+            youWon.style.visibility = "visible";
             game.playScreen.reset();
+            yourScore = 0;
+            yourEnemyCounter = 36;
+            score.innerHTML = "Score: " + yourScore;
+            enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
         }
         this._super(me.Container, "update", [time]);
         this.updateChildBounds();
