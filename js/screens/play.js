@@ -4,8 +4,10 @@ game.PlayScreen = me.ScreenObject.extend({
             alert("Sorry, You lost!");
             yourScore = 0;
             yourEnemyCounter = 36;
+            shotsFired = 0;
             score.innerHTML = "Score: " + yourScore;
             enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
+            shots.innerHTML = "Shots Fired: " + shotsFired;
             this.reset();
         }
     },

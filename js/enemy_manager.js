@@ -39,7 +39,7 @@ game.EnemyManager = me.Container.extend({
         else {
             _this.pos.x += _this.vel;
         }
-    }, 1000);
+    }, levelTime);
   },
 
   update: function (time) {
@@ -49,8 +49,19 @@ game.EnemyManager = me.Container.extend({
             game.playScreen.reset();
             yourScore = 0;
             yourEnemyCounter = 36;
+            level = level + 1;
+            shotsFired = 0;
             score.innerHTML = "Score: " + yourScore;
             enemyCounter.innerHTML = "Enemy Counter: " + yourEnemyCounter;
+            levelDisplay.innerHTML = "Level: " + level;
+            shots.innerHTML = "Shots Fired: " + shotsFired;
+            if (levelTime > 400) {
+              levelTime = levelTime - 200;
+            }
+        }
+
+        if (this.children.length === 26 && this.createdEnemies) {
+          youWon.style.visibility = "hidden";
         }
         this._super(me.Container, "update", [time]);
         this.updateChildBounds();

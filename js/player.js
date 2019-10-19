@@ -21,7 +21,9 @@ game.Player = me.Sprite.extend({
     }
 
     if (me.input.isKeyPressed("shoot")) {
-        me.game.world.addChild(me.pool.pull("laser", this.pos.x - game.Laser.width, this.pos.y - game.Laser.height))
+        me.game.world.addChild(me.pool.pull("laser", this.pos.x - game.Laser.width, this.pos.y - game.Laser.height));
+        shotsFired = shotsFired + 1;
+        shots.innerHTML = "Shots Fired: " + shotsFired;
     }
 
     this.pos.x = me.Math.clamp(this.pos.x, 0, this.maxX);
